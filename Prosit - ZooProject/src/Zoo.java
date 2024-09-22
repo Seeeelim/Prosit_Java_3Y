@@ -1,8 +1,8 @@
 public class Zoo
 {
     Animal[] animals;
-    String name;
-    String city;
+    public String name;
+    public String city;
     int nbCages;
 
     public Zoo(String city, String name, int nbCages)

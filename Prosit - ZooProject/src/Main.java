@@ -1,9 +1,15 @@
-public class Main {
-    public static void main(String[] args) {
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
 
         Animal lion = new Animal("Felidae", "Lion", 5, true);
         //Animal renard = new Animal("chiien", "Renard", 19, false);
 
+        //System.out.print("Enter the city name : ");
+        //city = scanner.nextLine();
         Zoo myZoo = new Zoo("New York", "Safari Zoo", 25);
         myZoo.animals[0] = lion;
 
@@ -14,4 +20,3 @@ public class Main {
         System.out.println(lion.toString());
     }
 }
-
