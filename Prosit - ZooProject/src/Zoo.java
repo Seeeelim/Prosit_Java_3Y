@@ -3,7 +3,10 @@ public class Zoo
     Animal[] animals;
     public String name;
     public String city;
-    int nbCages;
+    public int nbCages;
+    public int nbAnimal;
+
+    //static final int NUMBER_CAGES = 25;
 
     public Zoo(String city, String name, int nbCages)
     {
@@ -21,13 +24,20 @@ public class Zoo
     }
 
     @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Zoo [name=").append(name)
-                .append(", city=").append(city)
-                .append(", nbCages=").append(nbCages)
-                .append(", animals=").append(java.util.Arrays.toString(animals))
-                .append("]");
-        return sb.toString();
+    public String toString()
+    {
+        return "Animal [name=" + name + ", city=" + city + ", nbCages=" + nbCages + ", animals=" + java.util.Arrays.toString(animals) + "]";
+    }
+
+    public boolean addAnimal(Animal animal)
+    {
+        if (nbAnimal == nbCages)
+        {
+            return false;
+        }
+
+        animals[nbAnimal] = animal;
+        nbAnimal++;
+        return true;
     }
 }
