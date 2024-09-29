@@ -3,41 +3,136 @@ public class Zoo
     Animal[] animals;
     public String name;
     public String city;
-    public int nbCages;
+    public final int NB_CAGES = 25;
     public int nbAnimal;
 
     //static final int NUMBER_CAGES = 25;
-
-    public Zoo(String city, String name, int nbCages)
+    public Zoo(int taille)
     {
-        animals = new Animal[nbCages];
+        animals = new Animal[taille];
+        nbAnimal = 0;
+    }
+
+    public Zoo(String city, String name)
+    {
+        animals = new Animal[NB_CAGES];
         this.city = city;
         this.name = name;
-        this.nbCages = nbCages;
+        //this.nbCages = nbCages;
     }
 
     public void displayZoo()
     {
         System.out.println("Zoo Name: " + name);
         System.out.println("City: " + city);
-        System.out.println("Number of Cages: " + nbCages);
+        System.out.println("Number of Cages: " + NB_CAGES);
     }
 
     @Override
     public String toString()
     {
-        return "Animal [name=" + name + ", city=" + city + ", nbCages=" + nbCages + ", animals=" + java.util.Arrays.toString(animals) + "]";
+        return "Animal [name=" + name + ", city=" + city + ", nbCages=" + NB_CAGES + ", animals=" + java.util.Arrays.toString(animals) + "]";
     }
 
     public boolean addAnimal(Animal animal)
     {
-        if (nbAnimal == nbCages)
+        if (searchAnimal(animal) == -1)
         {
+            if (nbAnimal < NB_CAGES)
+            {
+                animals[nbAnimal] = animal;
+                nbAnimal++;
+                return true;
+            }
+            else {
+                System.out.println("La taille maximale du zoo a été atteinte !");
+                return false;
+            }
+        } else {
+            System.out.println("Animal est déja existant dans le zoo !");
+            return false;
+
+        }
+    }
+
+    public void displayAnimaux()
+    {
+        for(int i = 0; i < nbAnimal; i++)
+        {
+            System.out.println(animals[i]);
+        }
+    }
+
+    public int searchAnimal(Animal animal)
+    {
+        for(int i = 0; i < nbAnimal; i++)
+        {
+            if (animals[i].name.equals(animal.name))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public boolean removeAnimal(Animal animal)
+    {
+        int pos = searchAnimal(animal);
+
+        if(pos != -1)
+        {
+            for(int i = pos; i < nbAnimal - 1; i++)
+            {
+                animals[i] = animals[i + 1];
+            }
+            animals[nbAnimal - 1] = null;
+            nbAnimal--;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isZooFull()
+    {
+        if(nbAnimal < NB_CAGES)
+        {
+            System.out.println("Le zoo n'est pas rempli au maximum !");
             return false;
         }
+        else {
+            System.out.println("Le zoo est rempli au maximum !");
+            return true;
+        }
+    }
 
-        animals[nbAnimal] = animal;
-        nbAnimal++;
-        return true;
+    public Zoo comparerZoo(Zoo z1, Zoo z2)
+    {
+        int comptZoo1 = 0;
+        int comptZoo2 = 0;
+
+        for(int i = 0; i < z1.nbAnimal; i++)
+        {
+            comptZoo1++;
+        }
+
+        for(int i = 0; i < z2.nbAnimal; i++)
+        {
+            comptZoo2++;
+        }
+
+        if(comptZoo1 > comptZoo2)
+        {
+            System.out.println("Le zoo 1 est plus rempli que le zoo 2");
+            return z1;
+        }
+        else if(comptZoo1 < comptZoo2)
+        {
+            System.out.println("Le zoo 2 est plus rempli que le zoo 1");
+            return z2;
+        }
+        else{
+            System.out.println("Les deux zoo ont la meme quantité d'animaux");
+            return null;
+        }
     }
 }
