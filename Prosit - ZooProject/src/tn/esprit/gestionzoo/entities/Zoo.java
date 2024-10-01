@@ -1,6 +1,47 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo
 {
     Animal[] animals;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if(name != null) {
+            this.name = name;
+        }
+        else
+        {
+            System.out.println("Le nom du zoo ne peut pas etre null !");
+        }
+    }
+
+    public int getNbAnimal() {
+        return nbAnimal;
+    }
+
+    public void setNbAnimal(int nbAnimal) {
+        this.nbAnimal = nbAnimal;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
     public String name;
     public String city;
     public static final int NB_CAGES = 25;
@@ -22,7 +63,7 @@ public class Zoo
 
     public void displayZoo()
     {
-        System.out.println("Zoo Name: " + name);
+        System.out.println("tn.esprit.gestionzoo.entities.Zoo Name: " + name);
         System.out.println("City: " + city);
         System.out.println("Number of Cages: " + NB_CAGES);
     }
@@ -30,14 +71,14 @@ public class Zoo
     @Override
     public String toString()
     {
-        return "Animal [name=" + name + ", city=" + city + ", nbCages=" + NB_CAGES + ", animals=" + java.util.Arrays.toString(animals) + "]";
+        return "tn.esprit.gestionzoo.entities.Animal [name=" + name + ", city=" + city + ", nbCages=" + NB_CAGES + ", animals=" + java.util.Arrays.toString(animals) + "]";
     }
 
     public boolean addAnimal(Animal animal)
     {
         if (searchAnimal(animal) == -1)
         {
-            if (nbAnimal < NB_CAGES)
+            if (isZooFull())
             {
                 animals[nbAnimal] = animal;
                 nbAnimal++;
@@ -48,7 +89,7 @@ public class Zoo
                 return false;
             }
         } else {
-            System.out.println("Animal est déja existant dans le zoo !");
+            System.out.println("tn.esprit.gestionzoo.entities.Animal est déja existant dans le zoo !");
             return false;
 
         }
