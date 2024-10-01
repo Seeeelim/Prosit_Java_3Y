@@ -3,10 +3,9 @@ public class Zoo
     Animal[] animals;
     public String name;
     public String city;
-    public final int NB_CAGES = 25;
+    public static final int NB_CAGES = 25;
     public int nbAnimal;
 
-    //static final int NUMBER_CAGES = 25;
     public Zoo(int taille)
     {
         animals = new Animal[taille];
