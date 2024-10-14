@@ -2,6 +2,11 @@ package tn.esprit.gestionzoo.entities;
 
 public class Zoo
 {
+    public String name;
+    public String city;
+    public static final int NB_CAGES = 25;
+    public int nbAnimal;
+
     Animal[] animals;
 
     public String getName() {
@@ -42,11 +47,6 @@ public class Zoo
         this.animals = animals;
     }
 
-    public String name;
-    public String city;
-    public static final int NB_CAGES = 25;
-    public int nbAnimal;
-
     public Zoo(int taille)
     {
         animals = new Animal[taille];
@@ -58,7 +58,6 @@ public class Zoo
         animals = new Animal[NB_CAGES];
         this.city = city;
         this.name = name;
-        //this.nbCages = nbCages;
     }
 
     public void displayZoo()
