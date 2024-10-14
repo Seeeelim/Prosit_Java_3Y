@@ -62,10 +62,10 @@ public class Main
         System.out.println(penguin);
 
         // Création des instances avec des constructeurs paramétrés
-        Aquatic aquaticAnimalP = new Aquatic("Aquatic Family", "Shark", "Ocean", 5, true);
-        Terrestrial terrestrialAnimalP = new Terrestrial("Terrestrial Family", "Elephant", 10, true, 4);
-        Dolphin dolphinP = new Dolphin("Dolphin Family", "Flipper", "Sea", 7, false , 25.5f);
-        Penguin penguinP = new Penguin("Penguin Family", "Pingu", "Antarctica", 14, false, 30.2f);
+        Aquatic aquaticAnimalP = new Aquatic("Aquaticss", "turtle", "Ocean", 50, true);
+        Terrestrial terrestrialAnimalP = new Terrestrial("Terrestrialss", "Mouse", 20, true, 4);
+        Dolphin dolphinP = new Dolphin("Dolphinss", "dessinn", "Mer", 7, false , 35.2f);
+        Penguin penguinP = new Penguin("Penguinss", "Pingsss", "Antarctica", 14, false, 30.02f);
 
         // Affichage des objets (appel de toString() automatiquement)
         System.out.println(aquaticAnimalP);
