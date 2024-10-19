@@ -62,19 +62,19 @@ public class Main
         System.out.println(penguin);
 
         // Création des instances avec des constructeurs paramétrés
-        Aquatic aquaticAnimalP = new Aquatic("Aquaticss", "turtle", "Ocean", 50, true);
-        Terrestrial terrestrialAnimalP = new Terrestrial("Terrestrialss", "Mouse", 20, true, 4);
-        Dolphin dolphinP = new Dolphin("Dolphinss", "dessinn", "Mer", 7, false , 35.2f);
-        Penguin penguinP = new Penguin("Penguinss", "Pingsss", "Antarctica", 14, false, 30.02f);
+        Aquatic aquaticAnimals = new Aquatic("Aquaticss", "turtle", "Ocean", 50, true);
+        Terrestrial terrestrialAnimals = new Terrestrial("Terrestrialss", "Mouse", 20, true, 4);
+        Dolphin dolphins = new Dolphin("Dolphinss", "dessinn", "Mer", 7, false , 35.2f);
+        Penguin penguins = new Penguin("Penguinss", "Pingsss", "Antarctica", 14, false, 30.02f);
 
         // Affichage des objets (appel de toString() automatiquement)
-        System.out.println(aquaticAnimalP);
-        System.out.println(terrestrialAnimalP);
-        System.out.println(dolphinP);
-        System.out.println(penguinP);
+        System.out.println(aquaticAnimals);
+        System.out.println(terrestrialAnimals);
+        System.out.println(dolphins);
+        System.out.println(penguins);
 
-        aquaticAnimalP.swim();  // Appel à la méthode swim() de Aquatic
-        dolphinP.swim();        // Appel à la méthode swim() de Dolphin
-        penguinP.swim();        // Appel à la méthode swim() hérité de Aquatic
+        aquaticAnimals.swim();  // Appel à la méthode swim() de Aquatic
+        dolphins.swim();        // Appel à la méthode swim() de Dolphin
+        penguins.swim();        // Appel à la méthode swim() hérité de Aquatic
     }
 }
