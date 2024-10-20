@@ -226,10 +226,14 @@ public class Zoo
         System.out.println("nb Penguin : " + comptPenguin + "nb Dauphins : " + comptDoplhin);
     }
 
-    /*
-    function displaySwimming()
+    public void displaySwimming()
     {
-
+        for (Aquatic aquatic : aquaticAnimals)
+        {
+            if (aquatic != null)
+            {
+                aquatic.swim();  // Call swim() for each aquatic animal
+            }
+        }
     }
-    */
 }
