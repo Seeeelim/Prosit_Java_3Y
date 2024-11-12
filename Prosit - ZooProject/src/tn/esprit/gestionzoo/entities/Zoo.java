@@ -1,10 +1,9 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Zoo
-{
+public class Zoo {
     public String name;
     public String city;
-    public static final int NB_CAGES = 25;
+    public static final int NB_CAGES = 3;
     public int nbAnimal;
     public Aquatic[] aquaticAnimals = new Aquatic[10];
 
@@ -74,24 +73,18 @@ public class Zoo
         return "tn.esprit.gestionzoo.entities.Animal [name=" + name + ", city=" + city + ", nbCages=" + NB_CAGES + ", animals=" + java.util.Arrays.toString(animals) + "]";
     }
 
-    public boolean addAnimal(Animal animal)
+    public void addAnimal(Animal animal) throws ZooFullException
     {
+        if (nbAnimal >= animals.length) {
+            // Si le zoo est plein, on lève l'exception
+            throw new ZooFullException("Le zoo est plein, impossible d'ajouter plus d'animaux.");
+        }
         if (searchAnimal(animal) == -1)
         {
-            if (isZooFull())
-            {
                 animals[nbAnimal] = animal;
                 nbAnimal++;
-                return true;
-            }
-            else {
-                System.out.println("La taille maximale du zoo a été atteinte !");
-                return false;
-            }
         } else {
             System.out.println("tn.esprit.gestionzoo.entities.Animal est déja existant dans le zoo !");
-            return false;
-
         }
     }
 

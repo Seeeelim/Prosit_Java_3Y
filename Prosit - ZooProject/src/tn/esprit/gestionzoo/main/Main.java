@@ -6,12 +6,12 @@ import tn.esprit.gestionzoo.entities.Aquatic;
 import tn.esprit.gestionzoo.entities.Terrestrial;
 import tn.esprit.gestionzoo.entities.Dolphin;
 import tn.esprit.gestionzoo.entities.Penguin;
+import tn.esprit.gestionzoo.entities.ZooFullException;
 
 public class Main
 {
     public static void main(String[] args)
     {
-
         Animal lion = new Animal("Felidae", "Lion", 5, true);
         Animal renard = new Animal("chiien", "Renard", 12, false);
         Animal baleine = new Animal("Marin", "Baleine", 50, true);
@@ -23,9 +23,13 @@ public class Main
         lion.setAge(6);
         Zoo1.setName("The new zoo");
 
-        Zoo1.addAnimal(lion);
-        Zoo1.addAnimal(renard);
-        Zoo1.addAnimal(baleine);
+        try{
+            Zoo1.addAnimal(lion);
+            Zoo1.addAnimal(renard);
+            Zoo1.addAnimal(baleine);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        }
 
         Zoo1.displayAnimaux();
 
@@ -40,9 +44,13 @@ public class Main
         Zoo1.isZooFull();
 
         Zoo Zoo2 = new tn.esprit.gestionzoo.entities.Zoo("Michigan", "Patron");
-        Zoo2.addAnimal(lion);
-        Zoo2.addAnimal(renard);
-        Zoo2.addAnimal(baleine);
+        try{
+            Zoo2.addAnimal(lion);
+            Zoo2.addAnimal(renard);
+            Zoo2.addAnimal(baleine);
+        } catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        }
 
         Zoo Zoo3 = Zoo1.comparerZoo(Zoo1, Zoo2);
 
@@ -50,7 +58,7 @@ public class Main
 
         // Création des instances avec constructeurs par défaut
 
-        Aquatic aquaticAnimal = new Aquatic();
+        Aquatic aquaticAnimal = new Dolphin();
         Terrestrial terrestrialAnimal = new Terrestrial();
         Dolphin dolphin = new Dolphin();
         Penguin penguin = new Penguin();
@@ -62,7 +70,7 @@ public class Main
         System.out.println(penguin);
 
         // Création des instances avec des constructeurs paramétrés
-        Aquatic aquaticAnimals = new Aquatic("Aquaticss", "turtle", "Ocean", 50, true);
+        Aquatic aquaticAnimals = new Dolphin("marin", "Aquacc", "ocean", 0, true , 0.2f);
         Terrestrial terrestrialAnimals = new Terrestrial("Terrestrialss", "Mouse", 20, true, 4);
         Dolphin dolphins = new Dolphin("Dolphinss", "dessinn", "Mer", 7, false , 35.2f);
         Penguin penguins = new Penguin("Penguinss", "Pingsss", "Antarctica", 14, false, 30.02f);
